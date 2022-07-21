@@ -20,21 +20,39 @@ int main()
   }
   int max_sum = INT_MIN;
 
-  for (int i = 0; i < n; i++)
-  {
-    for (int j = i; j < n; j++)
-    {
-      int sum = 0;
-      for (int k = i; k <= j; k++)
-      {
-        sum += arr[k];
-        // cout << arr[k] << " ";
-      }
-      // cout << endl;
+  //{{ _______this part is brute force approach________ }}
 
-      max_sum = max(max_sum, sum);
+  // for (int i = 0; i < n; i++)
+  // {
+  //   for (int j = i; j < n; j++)
+  //   {
+  //     int sum = 0;
+  //     for (int k = i; k <= j; k++)
+  //     {
+  //       sum += arr[k];
+  //     }
+  //     max_sum = max(max_sum, sum);
+  //   }
+  // }
+
+  //{{ _______this part is using cumulative sum approach________ }}
+  int currSum[n + 1];
+  currSum[0] = 0;
+  for (int i = 1; i <= n; i++)
+  {
+    currSum[i] = currSum[i - 1] + arr[i - 1];
+  }
+
+  int maxSum = INT_MIN;
+
+  for(int i =1; i<n; i++){
+    int sum =0;
+    for(int j=0; j<i; j++){
+      sum = currSum[i] - currSum[j];
+      maxSum = max(sum,maxSum);
     }
   }
-  cout << max_sum << endl;
+
+  cout << maxSum << endl;
   return 0;
 }
