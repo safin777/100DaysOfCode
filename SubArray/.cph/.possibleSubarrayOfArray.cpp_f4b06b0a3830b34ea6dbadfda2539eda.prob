@@ -1,0 +1,1 @@
+{"name":"Local: possibleSubarrayOfArray","url":"f:\\Programming\\C & C++\\100daysofcode\\SubArray\\possibleSubarrayOfArray.cpp","tests":[{"id":1658365407674,"input":"4\n-1 4 7 2\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Programming\\C & C++\\100daysofcode\\SubArray\\possibleSubarrayOfArray.cpp","group":"local","local":true}
