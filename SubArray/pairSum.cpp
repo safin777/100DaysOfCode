@@ -1,21 +1,31 @@
 #include <iostream>
 using namespace std;
 
-bool pairSum(int arr[], int n, int k)
+bool pairSum(int arr[], int k, int n)
 {
-  for (int i = 0; i < n - 1; i++)
+
+  int low = 0;
+  int high = n - 1;
+
+  while (low < high)
   {
-    for (int j = i + 1; j < n; j++)
+    if (arr[low] + arr[high] == k)
     {
-      if (arr[i] + arr[j] == k)
-      {
-        cout<<arr[i]<<" "<<arr[j]<<endl;
-        return true;
-      }
+      cout << arr[low] << " " << arr[high] << endl;
+      return true;
+    }
+
+    else if (arr[low] + arr[high] > k)
+    {
+      high--;
+    }
+    else
+    {
+      low++;
     }
   }
   return false;
-};
+}
 
 int main()
 {
